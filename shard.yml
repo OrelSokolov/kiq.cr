@@ -6,8 +6,10 @@ targets:
     main: src/kiq_cli.cr
 dependencies:
   active_support_cr:
-    path: ../active_support.cr
+    github: OrelSokolov/active_support.cr
+    version: ~> 0.1.0
   active_job_cr:
-    path: ../active_job.cr
+    github: OrelSokolov/active_job.cr
+    version: ~> 0.1.0
   redis:
     github: jgaskins/redis

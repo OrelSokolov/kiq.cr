@@ -3,3 +3,5 @@
 /tmp/
 /bin/
 *.dwarf
+/shard.lock
+/shard.override.yml
