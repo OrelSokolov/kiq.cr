@@ -1,0 +1,35 @@
+<%= script_tag("javascripts/chart.min.js") %>
+<%= script_tag("javascripts/chartjs-plugin-annotation.min.js") %>
+<%= script_tag("javascripts/chartjs-adapter-date-fns.min.js") %>
+<%= script_tag("javascripts/base-charts.js") %>
+
+<section>
+  <header>
+    <h1>
+      <%= t("Metrics") %>
+      <a target="blank" href="https://sidekiq.org/wiki/Metrics"><span class="info-circle" title="<%= t("ClickToLearnMore") %>">?</span></a>
+    </h1>
+
+    <%= metrics_period_select("#{root_path}metrics") %>
+  </header>
+
+  <div class="table_container">
+    <table>
+      <thead>
+        <tr>
+          <th><%= t("Name") %></th>
+          <th><%= t("Success") %></th>
+          <th><%= t("Failure") %></th>
+          <th><%= t("TotalExecutionTime") %> (<%= t("Seconds") %>)</th>
+          <th><%= t("AvgExecutionTime") %> (<%= t("Seconds") %>)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%# no job metrics recorded (Metrics::Query not ported) %>
+        <tr><td colspan="5"><%= t("NoDataFound") %></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<%= script_tag("javascripts/metrics.js") %>

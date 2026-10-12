@@ -1,0 +1,94 @@
+web_dash_status	200
+web_dash_ct	text/html
+web_dash_title	[DEVELOPMENT] <name>
+web_dash_nav_tabs	busy=Busy,queues=Queues,retries=Retries,scheduled=Scheduled,morgue=Dead,metrics=Metrics,profiles=Profiles
+web_dash_summary_processed	0
+web_dash_summary_busy	0
+web_dash_summary_enqueued	4
+web_dash_redis_version_line	yes
+web_dash_history_chart	yes
+web_dash_csp	script-src 'self' '<nonce>'
+web_dash_footer_product	<product>
+web_stats_status	200
+web_stats_ct	application/json
+web_stats_sidekiq	busy=0,dead=1,default_latency=<lat>,enqueued=4,failed=0,processed=0,processes=1,retries=2,scheduled=1
+web_stats_redis_store	Redis
+web_stats_redis_keys	connected_clients,redis_version,store_name,store_version,uptime_in_days,used_memory_human,used_memory_peak_human
+web_stats_utc_fmt	hh:mm:ss UTC
+web_stats_queues	critical=1,default=3
+web_queues_status	200
+web_queues_rows	2
+web_queues_names	critical,default
+web_queues_sizes	critical=1,default=3
+web_queue_status	200
+web_queue_total_size	3
+web_queue_job_count	6
+web_queue_args_escaped	yes
+web_queue_nested_args	no
+web_queue_pagination	0
+web_queue_page2_jobs	2
+web_queue_page2_links	0
+web_queue_missing_status	200
+web_queue_invalid_name_status	404
+web_queue_delete_redirect	/queues/default
+web_queue_delete_effect	2
+web_queue_delete_effect_a	true
+web_queue_clear_redirect	/queues
+web_queue_clear_effect	0
+web_retries_status	200
+web_retries_rows	0
+web_retries_error	kaboom
+web_retries_classes	WebA=1,WebB=1
+web_retries_retry_now	no
+web_retries_time_attr	yes
+web_retry_status	200
+web_retry_error_msg	kaboom
+web_retry_error_class	RuntimeError
+web_retry_retry_count	<none>
+web_retry_delete_redirect	/retries
+web_retry_delete_effect	1
+web_retries_all_retry_redirect	/retries
+web_retries_all_retry_effect	retry:0 default:4
+web_scheduled_status	200
+web_scheduled_rows	0
+web_scheduled_class	WebA
+web_scheduled_job_status	200
+web_scheduled_job_when	2025-06-15T15:06:40Z
+web_scheduled_addq_redirect	/scheduled
+web_scheduled_addq_effect	schedule:0 default:4
+web_morgue_status	200
+web_morgue_rows	0
+web_morgue_error	dead job
+web_morgue_job_status	200
+web_morgue_retry_redirect	/morgue
+web_morgue_retry_effect	dead:0 retry:2
+web_filter_status	200
+web_filter_rows	0
+web_filter_class	WebA-leak
+web_filter_empty_rows	0
+web_filter_empty_text	No jobs found
+web_busy_status	200
+web_busy_hostname	oraclehost
+web_busy_tag	oracle
+web_busy_quiet_btn	Quiet
+web_busy_no_jobs	workers-present
+web_busy_quiet_redirect	/busy
+web_busy_quiet_signal	TSTP
+web_busy_stop_signal	TERM,TSTP
+web_metrics_status	200
+web_metrics_heading	<none>
+web_metrics_period_select	default-1h
+web_metrics_job_status	200
+web_metrics_job_name	WebA
+web_profiles_status	200
+web_404_status	404
+web_404_body	Not Found
+web_head_status	200
+web_csrf_post_denied	403
+web_locale_unknown_redirect	/busy
+web_locale_default	<none>
+web_stats_redirect	/stats
+web_asset_css	200:text/css
+web_asset_css_len	big
+web_asset_logo	200:binary
+web_asset_js	200:text/javascript

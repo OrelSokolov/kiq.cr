@@ -1,0 +1,24 @@
+<!doctype html>
+<html dir="<%= text_direction %>" lang="<%= locale %>">
+  <head>
+    <title><%= environment_title_prefix %><%= product_name %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <link href="<%= root_path %>stylesheets/style.css" media="screen" rel="stylesheet" type="text/css" nonce="<%= nonce %>">
+    <link rel="apple-touch-icon" href="<%= root_path %>images/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/ico" href="<%= root_path %>images/favicon.ico">
+    <script type="text/javascript" src="<%= root_path %>javascripts/application.js" nonce="<%= nonce %>"></script>
+    <meta name="google" content="notranslate">
+  </head>
+  <body class="admin" data-locale="<%= locale %>">
+    <%= Views::Nav.new(ctx).to_s %>
+    <main id="page">
+      <div class="container">
+        <%= Views::Summary.new(ctx).to_s %>
+        <%= content %>
+      </div>
+    </main>
+    <%= Views::Footer.new(ctx).to_s %>
+  </body>
+</html>

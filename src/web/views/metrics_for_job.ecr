@@ -1,0 +1,15 @@
+<%= script_tag("javascripts/chart.min.js") %>
+<%= script_tag("javascripts/chartjs-plugin-annotation.min.js") %>
+<%= script_tag("javascripts/chartjs-adapter-date-fns.min.js") %>
+<%= script_tag("javascripts/base-charts.js") %>
+
+<section>
+  <%# no job metrics recorded (Metrics::Query not ported) %>
+  <header>
+    <h1>
+      <a href="<%= root_path %>/metrics"><%= t("Metrics") %></a> /
+      <%= h(@name) %>
+    </header>
+    <div class="alert alert-success"><%= t("NoJobMetricsFound") %></div>
+</section>
+<%= script_tag("javascripts/metrics.js") %>

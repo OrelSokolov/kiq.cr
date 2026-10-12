@@ -1,0 +1,59 @@
+dag_bid_format	urlsafe
+dag_bid_hash_before_run	{callback_queue:cbq,description:describing the batch}
+dag_callbacks_complete	[{"callback":"SampleCallback","opts":{"id":42}}]
+dag_callbacks_success	[{"callback":"SampleCallback2","opts":{}}]
+dag_callbacks_invalid_ignored	0
+dag_ttl	2592000
+dag_on_after_run	BatchAlreadyStartedError
+dag_no_block	NoBlockGivenError
+dag_run_jids	count:3 hex:true
+dag_run_hash	{pending:3,total:3}
+dag_run_created_at_float	0
+dag_run_jids_set	3
+dag_run_queue_payloads	{class:TestWorker,bid:true,has_jid:true},{class:TestWorker,bid:true,has_jid:true},{class:TestWorker,bid:true,has_jid:true}
+dag_run_ttl	2592000
+dag_status_data	{bid:<id2>,child_count:0,complete:false,done:0,exists:true,failure_info:[],failures:0,max:3,parent_bid:nil,pending:3,total:3}
+dag_empty_jids	0
+dag_empty_hash	{callback_queue:default,done:0,pending:0,total:0}
+dag_empty_callback_jobs	{clazz:SampleCallback,event:complete,opts:{id:9},bid:<id3>,parent:nil,snapshot:<snapshot>}
+dag_success_hash	{children:0,done:3,pending:0,total:3}
+dag_success_failed_set	0
+dag_success_jids_set	0
+dag_success_callback_events	complete,success
+dag_success_callback_args	SampleCallback|success|opts:{id:1}|parent:nil|snapshot:<snapshot>
+dag_success_idempotent	2
+dag_processed_flag_ttl	true
+dag_failed_hash	{children:0,pending:1,total:1}
+dag_failed_set	[<id6>]
+dag_failed_callback_events	complete
+dag_failed_status	failures:1 total:1 pending:1
+dag_nested_jids	4
+dag_nested_parent_children	2
+dag_nested_child_<id8>	pending:1 parent:true children:0
+dag_nested_child_<id9>	pending:1 parent:true children:0
+dag_nested_valid	true
+dag_nested_invalid	false,false
+dag_e2e_log	tw:no-batch|tw:no-batch|cb:complete:total=2:failures=0:id=5|cb:success:total=2:failures=0:id=5
+dag_e2e_hash	{children:0,done:2,pending:0,total:2}
+dag_e2e_queue_empty	true
+dag_e2e_fail_log	tw:no-batch|cb:complete:total=2:failures=1:id=6
+dag_e2e_fail_status	failures:1 total:2 done:1
+dag_node_chain_log	chain:a|chain:b|chain:c
+dag_node_chain_batches	0
+dag_node_single_log	chain:a
+dag_pipeline_log	pl:first|pl:second|pl:last
+dag_pipeline_node_statuses	FirstNode=completed,LastNode=completed,SecondNode=completed
+dag_pipeline_status	nil
+dag_pipeline_running?	false
+dag_pipeline_completed?	true
+dag_pipeline_progress	100.0
+dag_pipeline_bid_linked	true
+dag_ps_statuses	N1=completed,N2=failed
+dag_ps_node_status	completed
+dag_ps_default_status	pending
+dag_ps_find_by_bid	{pipeline_name: "apx", node_id: "N1"}
+dag_ps_running_ids	
+dag_ps_completed_count	1
+dag_ps_keys	pipeline:apx:nodes:N1:bid,pipeline:apx:nodes:N1:run_at,pipeline:apx:nodes:N1:status,pipeline:apx:nodes:N2:error,pipeline:apx:nodes:N2:run_at,pipeline:apx:nodes:N2:status,pipeline:apx:run_at,pipeline:apx:status
+dag_ps_finish	false
+dag_lock	ttl:true,nx-blocked:true,released:true

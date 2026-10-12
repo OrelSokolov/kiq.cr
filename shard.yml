@@ -1,0 +1,13 @@
+name: kiq_cr
+version: 0.1.0
+crystal: ">= 1.21.0"
+targets:
+  kiq:
+    main: src/kiq_cli.cr
+dependencies:
+  active_support_cr:
+    path: ../active_support.cr
+  active_job_cr:
+    path: ../active_job.cr
+  redis:
+    github: jgaskins/redis

@@ -1,0 +1,37 @@
+name: CI
+
+on: [pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    env:
+      REDIS_HOST: 'redis'
+
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7
+        # Set health checks to wait until redis has started
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps port 6379 on service container to the host
+          - 6379:6379
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ["3.2", "3.3", "3.4", ruby-head]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true # 'bundle install' and cache gems
+        ruby-version: ${{ matrix.ruby }}
+    - name: Run tests
+      run: bundle exec rake

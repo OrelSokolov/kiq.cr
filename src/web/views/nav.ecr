@@ -1,0 +1,39 @@
+<header>
+  <div class="container">
+    <div class="navbar-header" data-navbar="static">
+      <button type="button" class="btn navbar-toggle" data-toggle="navbar-menu" data-target="#navbar-menu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-livereload">
+        <%= poll_link %>
+      </div>
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= product_name %>
+      </a>
+    </div>
+
+    <div class="navbar-collapse" role="navigation" id="navbar-menu">
+      <ul class="nav" data-navbar="static">
+        <% Kiq::Web::TABS.each do |title, url| %>
+          <% if url == "" %>
+            <li class="<%= current_path == url ? "active" : "" %>">
+              <a href="<%= root_path %><%= url %>"><%= t(title) %></a>
+            </li>
+          <% else %>
+            <li class="<%= current_path.starts_with?(url) ? "active" : "" %>">
+              <a href="<%= root_path %><%= url %>"><%= t(title) %></a>
+            </li>
+          <% end %>
+        <% end %>
+
+        <li class="navbar-livereload">
+          <div class="poll-wrapper">
+            <%= poll_link %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

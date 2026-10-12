@@ -1,0 +1,29 @@
+ki_push_payload	{args:[1,x],class:A,created_at:<ms>,enqueued_at:<ms>,jid:<jid>,queue:default,retry:true}
+ki_push_jid	true
+ki_queue_registered	default,low
+ki_push_bulk	llen:4 jids_ok:true
+ki_setter	{args:[9],class:A,created_at:<ms>,enqueued_at:<ms>,jid:<jid>,queue:crit,retry:7}
+ki_options	{args:[],class:B,created_at:<ms>,enqueued_at:<ms>,jid:<jid>,queue:low,retry:3}
+ki_push_validation	ArgumentError
+ki_perform_in	zcard:1 bucket:60min payload:{args:[5],class:A,created_at:<ms>,jid:<jid>,queue:default,retry:true} queue_empty:true
+ki_perform_at_past	schedule:1 queue:1
+ki_worker_processes	A:1,A:2,A:3,B:x
+ki_stats	processed:4 failed:0 enqueued:0 queues:default=0,low=0
+ki_stats_ttl	true
+ki_retry_backoff	count:0 class:RuntimeError msg:boom queue:default payload:{args:[],class:F1,created_at:<ms>,enqueued_at:<ms>,error_class:RuntimeError,error_message:boom,failed_at:<ms>,jid:<jid>,queue:default,retry:2,retry_count:0} delay_ok:true
+ki_retry_second	count:1 has_retried_at:true delay_ok:true
+ki_retry_exhausted	retry:0 dead:1 count:1 class:RuntimeError log:death:F2
+ki_retry_zero	retry:0 dead:1
+ki_retry_false	retry:0 dead:0 queues:0
+ki_dead_false	dead:0 retry:0 log:death:FD
+ki_scheduled_promote	log:A:7 schedule:0
+ki_api_queue	size:2 latency_ok:true all:default
+ki_api_queue_clear	size:0 sets:
+ki_api_sets	sched:2 retry:1 dead:1
+ki_api_sets_clear	sched:0 dead:0
+ki_testing_fake	jobs:1 args:[5] queue:default redis:0
+ki_testing_fake_drain	jobs:0 log:A:5
+ki_testing_inline	jobs:0 log:A:5,A:6 redis:0
+ki_perform_inline	ret:true log:A:5,A:6,A:8 redis:0
+ki_middleware_client	tag:cm stopped_llen:1
+ki_middleware_server	sbefore,A:1,safter

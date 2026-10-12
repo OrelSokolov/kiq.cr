@@ -1,0 +1,30 @@
+<%= Views::JobInfo.new(ctx, @job, :dead).to_s %>
+
+<section>
+  <header>
+    <h1><%= t("Error") %></h1>
+  </header>
+  <div class="table_container">
+    <table>
+      <tbody>
+        <tr>
+          <th><%= t("ErrorClass") %></th>
+          <td>
+            <code><%= @job["error_class"] %></code>
+          </td>
+        </tr>
+        <tr>
+          <th><%= t("ErrorMessage") %></th>
+          <td><%= h(@job["error_message"].to_s) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <form action="<%= root_path %>morgue/<%= job_params(@job) %>" method="post">
+    <%= csrf_tag %>
+    <a class="btn btn-default" href="<%= root_path %>morgue"><%= t("GoBack") %></a>
+    <input class="btn btn-primary" type="submit" name="retry" value="<%= t("RetryNow") %>">
+    <input class="btn btn-danger" type="submit" name="delete" value="<%= t("Delete") %>">
+  </form>
+</section>

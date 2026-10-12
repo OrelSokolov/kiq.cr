@@ -1,0 +1,35 @@
+<section>
+  <header>
+    <h1><%= t("Queues") %></h1>
+  </header>
+
+  <div class="table_container">
+    <table>
+      <thead>
+        <th><%= t("Queue") %></th>
+        <th><%= t("Size") %></th>
+        <th><%= t("Latency") %></th>
+        <th><%= t("Actions") %></th>
+      </thead>
+      <% @queues.each do |queue| %>
+        <tr>
+          <td>
+            <a href="<%= root_path %>queues/<%= Web.escape(queue.name) %>"><%= h(queue.name) %></a>
+          </td>
+          <td class="num"><%= number_with_delimiter(queue.size) %> </td>
+          <td class="num">
+            <% queue_latency = queue.latency %>
+            <%= (queue_latency < 60) ? "" : " (#{relative_time(Time.utc - queue_latency.seconds)})" %>
+            <%= number_with_delimiter(queue_latency, precision: 2) %>
+          </td>
+          <td class="delete-confirm">
+            <form action="<%= root_path %>queues/<%= Web.escape(queue.name) %>" method="post">
+              <%= csrf_tag %>
+              <input class="btn btn-danger" type="submit" name="delete" title="This will delete all jobs within the queue, it will reappear if you push more jobs to it in the future." value="<%= t("Delete") %>" data-confirm="<%= t("AreYouSureDeleteQueue", {"queue" => h(queue.name)}) %>">
+            </form>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</section>
