@@ -27,6 +27,12 @@ shards install
 
 Depends on `active_support.cr`, `active_job.cr` and the `redis` shard.
 
+Standalone worker binary (the `sidekiq` command analogue):
+
+```sh
+carat install OrelSokolov/kiq.cr   # -> ~/.carat/bin/kiq
+```
+
 ## Usage
 
 ```crystal

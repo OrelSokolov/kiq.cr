@@ -1,6 +1,12 @@
 name: kiq_cr
-version: 0.1.0
+version: 0.1.1
 crystal: ">= 1.21.0"
+# carat install builds the standalone `kiq` worker binary (analogue of
+# the `sidekiq` command) from binaries:; carat ignores targets.
+binaries:
+  kiq:
+    main: src/kiq_cli.cr
+# Duplicated for plain `shards build kiq` (shards doesn't know binaries).
 targets:
   kiq:
     main: src/kiq_cli.cr
